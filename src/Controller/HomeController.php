@@ -17,8 +17,10 @@ class HomeController extends AbstractController
      */
     public function index(ProjectRepository $projects): Response
     {
+
         return $this->render('home/index.html.twig', [
             'projects' => $projects->findAll(),
         ]);
     }
+
 }
