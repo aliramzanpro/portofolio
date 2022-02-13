@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+<!-- Contact Section-->
+	<section class="page-section mt-5" id="contact">
+		<div
+			class="container">
+			<!-- Contact Section Heading-->
+			<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+			<!-- Icon Divider-->
+			<div class="divider-custom">
+				<div class="divider-custom-line"></div>
+				<div class="divider-custom-icon">
+					<i class="fas fa-star"></i>
+				</div>
+				<div class="divider-custom-line"></div>
+			</div>
+			<!-- Contact Section Form-->
+			<div class="row justify-content-center">
+				<div class="col-lg-8 col-xl-7">
+			    {% for message in app.flashes('message') %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+						{{message}} 
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+                {% endfor %}
+					{{ form_start(form) }}
+					<div class="row">
+						<div class="form-floating mb-3 col-6">
+							{{ form_row(form.lastname, {'label': "Lastname"}) }}
+
+						</div>
+						<div class="form-floating mb-3 col-6">
+
+							{{ form_row(form.firstname, {'label':"Firstname"}) }}
+						</div>
+					</div>
+					<!-- Email address input-->
+					<div class="form-floating mb-3">
+						{{ form_row(form.email, {'label':"Email address"}) }}
+						<div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+						<div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+					</div>
+					<!-- Phone number input-->
+					<div class="form-floating mb-3">
+						{{ form_row(form.phone, {'label':"Phone number"}) }}
+						<div class="invalid-feedback" data-sb-feedback="a href=" https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>message:required">A message is required.</div>
+				</div>
+				<div class="form-floating mb-3">
+					{{ form_row(form.content, {'label':"Message"}) }}
+					<div class="invalid-feedback" data-sb-feedback="a href=" https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>message:required">A message is required.</div>
+			</div>
+			<!-- Submit Button-->
+			<button class="btn btn-primary btn-xl btn-lg btn-block" id="submitButton" type="submit">Send</button>
+			{{ form_end(form) }}
+		</div>
+	</div>
+</div></section>
+{% endblock %}
